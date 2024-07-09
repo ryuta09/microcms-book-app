@@ -1,0 +1,40 @@
+.list {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.list:last-child {
+  border-bottom: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 24px 0;
+}
+
+.image {
+  width: 200px;
+  height: auto;
+  border-radius: var(--border-raduis);
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+
+@media (max-width: 1000px) {
+  .news {
+    width: calc(100% - 160px);
+  }
+}
