@@ -1,21 +1,20 @@
-import { createClient } from 'microcms-js-sdk';
+import { createClient } from "microcms-js-sdk";
 import type {
   MicroCMSQueries,
   MicroCMSImage,
-  MicroCMSListContent
-} from 'microcms-js-sdk'
+  MicroCMSListContent,
+} from "microcms-js-sdk";
 
 export type Member = {
   name: string;
   position: string;
   profile: string;
   image: MicroCMSImage;
-} & MicroCMSListContent
-
+} & MicroCMSListContent;
 
 export type Category = {
-  name: string
-} & MicroCMSListContent 
+  name: string;
+} & MicroCMSListContent;
 
 export type News = {
   title: string;
@@ -23,33 +22,45 @@ export type News = {
   content: string;
   thumbnail: MicroCMSImage;
   category: Category;
-} & MicroCMSListContent
+} & MicroCMSListContent;
 
-if(!process.env.MICROCMS_SERVICE_DOMAIN) {
-  throw new Error('MICROCMS_SERVICE_DOMAIN is not set')
+if (!process.env.MICROCMS_SERVICE_DOMAIN) {
+  throw new Error("MICROCMS_SERVICE_DOMAIN is not set");
 }
 
-if(!process.env.MICROCMS_API_KEY) {
-  throw new Error('MICROCMS_API_KEY is not set')
+if (!process.env.MICROCMS_API_KEY) {
+  throw new Error("MICROCMS_API_KEY is not set");
 }
 
 const client = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: process.env.MICROCMS_API_KEY,
-})
+});
 
 export const getMermbersList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Member>({
-    endpoint: 'members',
-    queries
-  })
-  return listData
-}
+    endpoint: "members",
+    queries,
+  });
+  return listData;
+};
 
 export const getNewsList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<News>({
-    endpoint: 'news',
-    queries
-  })
-  return listData
-}
+    endpoint: "news",
+    queries,
+  });
+  return listData;
+};
+
+export const getNewsDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  const detailData = await client.getListDetail<News>({
+    endpoint: "news",
+    contentId,
+    queries,
+  });
+  return detailData;
+};
