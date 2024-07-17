@@ -4,9 +4,10 @@ import Link from "next/link";
 type Props = {
   totalCount: number;
   current?: number;
+  basePath?: string
 };
 
-export default function Pagination({ totalCount, current = 1 }: Props) {
+export default function Pagination({ totalCount, current = 1, basePath = '/news' }: Props) {
   const pages = Array.from(
     {
       length: Math.ceil(totalCount / NEWS_LIST_LIMIT),
@@ -18,11 +19,8 @@ export default function Pagination({ totalCount, current = 1 }: Props) {
       <ul className={styles.container}>
         {pages.map((p) => (
           <li className={styles.list} key={p}>
-            {/* <Link href={`/new/p/${p}`} className={styles.item}>
-              {p}
-            </Link> */}
             {current !== p ? (
-              <Link href={`/news/p/${p}`} className={styles.item}>
+              <Link href={`${basePath}/p/${p}`} className={styles.item}>
                 {p}
               </Link>
             ) : (
