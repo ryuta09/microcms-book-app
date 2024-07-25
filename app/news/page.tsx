@@ -3,8 +3,6 @@ import NewsList from "../_components/NewsList";
 import Pagination from "../_components/Pagination";
 import SearchField from "../_components/SearchField";
 
-export const revalidate = 60
-
 export default async function News() {
   const { contents: news, totalCount } = await getNewsList();
   return (
