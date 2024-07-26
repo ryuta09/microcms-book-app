@@ -11,7 +11,6 @@ const initialState = {
 export default function ContactForm() {
 
   const [state, formAction] = useFormState(createContactDate, initialState);
-
   if(state.status === 'success') {
     return(
       <p className={styles.success}>
@@ -23,7 +22,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} action={formAction }>
       <div className={styles.horizontal}>
         <div className={styles.item}>
           <label className={styles.label} htmlFor="lastname">
