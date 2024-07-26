@@ -1,5 +1,27 @@
+'use client'
+import { useFormState } from 'react-dom';
 import styles from './index.module.css'
+import createContactDate from '@/app/_action/contact';
+
+const initialState = {
+  status: '',
+  message: '',
+}
+
 export default function ContactForm() {
+
+  const [state, formAction] = useFormState(createContactDate, initialState);
+
+  if(state.status === 'success') {
+    return(
+      <p className={styles.success}>
+        お問い合わせいただきありがとうございます。
+        <br />
+        お返事まで今しばらくお待ちください。
+      </p>
+    )
+  }
+
   return (
     <form className={styles.form}>
       <div className={styles.horizontal}>
@@ -55,6 +77,9 @@ export default function ContactForm() {
         <textarea id="message" name="message" className={styles.textarea} />
       </div>
       <div className={styles.actions}>
+        {state.status === 'error' && (
+          <p className={styles.error}>{state.message}</p>
+        )}
         <input type="submit" className={styles.button} value="送信する" />
       </div>
     </form>
