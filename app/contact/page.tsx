@@ -1,3 +1,4 @@
+import ContactForm from '../_components/ContactForm'
 import styles from './page.module.css'
 export default function Contact() {
   return(
@@ -7,6 +8,7 @@ export default function Contact() {
         <br />
         内容確認後、担当者より3営業日以内にご連絡いたします。
       </p>
+      <ContactForm />
     </div>
   )
 }
