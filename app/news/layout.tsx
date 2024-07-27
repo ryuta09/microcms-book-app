@@ -8,6 +8,10 @@ type Props = {
 
 export const revalidate = 60;
 
+export const metadata = {
+  title: 'ニュース'
+}
+
 export default function NewsLayout({ children }: Props) {
   return (
     <>
