@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Hero from "../_components/Hero";
 import Sheet from "../_components/Sheet";
 
