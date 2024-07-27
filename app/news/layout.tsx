@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Hero from "../_components/Hero";
 import Sheet from "../_components/Sheet";
 
@@ -6,6 +7,10 @@ type Props = {
 };
 
 export const revalidate = 60;
+
+export const metadata = {
+  title: 'ニュース'
+}
 
 export default function NewsLayout({ children }: Props) {
   return (

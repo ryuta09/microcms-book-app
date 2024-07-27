@@ -78,3 +78,19 @@ export const getCategoryDetail = async (contentId: string, queries?:MicroCMSQuer
   })
   return detailsData
 }
+
+// 全てのコンテンツを取得
+export const getAllNewsList = async () => {
+  const listData = await client.getAllContents<News>({
+    endpoint: 'news'
+  })
+  return listData
+}
+
+// 全てのカテゴリーを取得
+export const getAllCategory = async () => {
+  const listData = await client.getAllContents<Category>({
+    endpoint: 'category'
+  })
+  return listData
+}
