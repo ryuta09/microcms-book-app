@@ -4,7 +4,7 @@ import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://microcms-book-app-grb1.vercel.app"),
   title: {
     template: "%s | シンプルなコーポレートサイト",
     default: "シンプルなコーポレートサイト",
