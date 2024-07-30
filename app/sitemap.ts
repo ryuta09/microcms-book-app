@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getAllCategory, getAllNewsList } from "./lib/microcms";
+import { getAllCategory, getAllNewsList } from "../lib/microcms";
 
 const buildUrl = (path?: string) => `http://localhost:3000${path ?? ""}`;
 
