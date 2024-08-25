@@ -8,9 +8,14 @@
 
 .link {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 40px;
   padding: 24px 0;
+}
+
+.content {
+  width: 100%;
 }
 
 .image {
@@ -33,8 +38,14 @@
 
 
 
-@media (max-width: 1000px) {
+@media (min-width: 764px) {
   .news {
     width: calc(100% - 160px);
+  }
+  .content {
+    width: calc(100% - 200px);
+  }
+  .link {
+    flex-direction: row;
   }
 }

@@ -78,9 +78,9 @@
 .news {
   position: relative;
   background-color: #fff;
-  width: 840px;
+  width: 100%;
   margin: -40px auto 0;
-  padding: 24px 40px;
+  padding: 12px 25px;
   border-radius: var(--border-raduis);
 }
 
@@ -88,15 +88,14 @@
   font-size: 1.5rem;
 } 
 
-.newsLink {
-  position: absolute;
-  right: -40px;
-  bottom: -40px;
+.newsLink a{
+  margin-left: auto;
 }
 
 
-@media (max-width: 1000px) {
+@media (min-width: 1000px) {
   .news {
     width: calc(100% - 160px);
+    padding: 24px 40px;
   }
 }
