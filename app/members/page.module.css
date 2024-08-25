@@ -5,17 +5,18 @@
 
 .list {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 40px;
   margin-bottom: 80px;
 }
 .list:nth-child(even) {
-  flex-direction: row-reverse;
+  flex-direction: col-reverse;
 }
 
 .image {
   width: 240px;
-  height: auto;
+  margin-inline: auto;
   border-radius: var(--border-radius);
 }
 
@@ -29,7 +30,7 @@
 }
 
 .profile {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .footer {
@@ -49,4 +50,19 @@
 
 .empty {
   margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .list {
+    flex-direction: row;
+  }
+
+  .list:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .image {
+    height: auto;
+    border-radius: var(--border-radius);
+  }
 }
